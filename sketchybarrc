@@ -118,6 +118,15 @@ sketchybar -m --add item sound right \
               icon.color=0xffd08770 \
               script="$CONFIG_DIR/plugins/sound.sh"
 
+# Input Source / Keyboard Layout
+sketchybar --add item input_source right \
+           --set input_source update_freq=2 \
+                              icon= \
+                              icon.padding_right=8 \
+                              padding_left=10 \
+                              script="$CONFIG_DIR/plugins/input_source.sh" \
+           --subscribe input_source mouse.clicked
+
 # -----------------------------------------------------
 # 5. Finalize
 # -----------------------------------------------------
