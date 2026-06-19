@@ -97,6 +97,14 @@ sketchybar --add item cpu right \
                       icon=􀧓  \
                       script="$CONFIG_DIR/plugins/cpu.sh"           
 
+# WIFI
+sketchybar --add item net right                  \
+           --set net script="$CONFIG_DIR/plugins/net.sh" \
+                     update_freq=20 \
+                     updates=on                  \
+                     label.drawing=off           \
+           --subscribe net wifi_change
+
 # -----------------------------------------------------
 # 5. Finalize
 # -----------------------------------------------------
