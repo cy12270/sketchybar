@@ -9,7 +9,7 @@ source "$CONFIG_DIR/styles/colors.sh"
 # -----------------------------------------------------
 # 1. Bar Settings
 # -----------------------------------------------------
-sketchybar --bar height=32 \
+sketchybar --bar height=30 \
                  color=$BAR_COLOR \
                  shadow=on \
                  position=top \
@@ -90,6 +90,12 @@ sketchybar --add item battery right \
                          padding_left=10 \
                          padding_right=10 \
            --subscribe battery system_woke power_source_change
+
+# CPU
+sketchybar --add item cpu right \
+           --set cpu  update_freq=2 \
+                      icon=􀧓  \
+                      script="$CONFIG_DIR/plugins/cpu.sh"           
 
 # -----------------------------------------------------
 # 5. Finalize
