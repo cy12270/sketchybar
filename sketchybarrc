@@ -111,6 +111,13 @@ sketchybar -m --add item vpn right \
                         update_freq=5 \
                         script="$CONFIG_DIR/plugins/vpn.sh"
 
+# Volume
+sketchybar -m --add item sound right \
+              --set sound \
+              update_freq=5 \
+              icon.color=0xffd08770 \
+              script="$CONFIG_DIR/plugins/sound.sh"
+
 # -----------------------------------------------------
 # 5. Finalize
 # -----------------------------------------------------
