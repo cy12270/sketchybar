@@ -105,6 +105,12 @@ sketchybar --add item net right                  \
                      label.drawing=off           \
            --subscribe net wifi_change
 
+# VPN
+sketchybar -m --add item vpn right \
+              --set vpn icon= \
+                        update_freq=5 \
+                        script="$CONFIG_DIR/plugins/vpn.sh"
+
 # -----------------------------------------------------
 # 5. Finalize
 # -----------------------------------------------------
