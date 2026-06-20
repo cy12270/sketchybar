@@ -117,6 +117,7 @@ sketchybar --add item net right \
                      padding_left=$PAD_RIGHT_ITEM_LEFT \
                      updates=on \
                      label.drawing=off \
+                     icon.padding_left=6 \
                      icon.padding_right=$PAD_ICON_RIGHT \
            --subscribe net wifi_change
 
