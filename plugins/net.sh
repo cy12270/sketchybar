@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-. "$CONFIG_DIR/styles/icons.sh"
+. "$CONFIG_DIR/styles/net_icons.sh"
 
 # When switching between devices, it's possible to get hit with multiple
 # concurrent events, some of which may occur before `scutil` picks up the

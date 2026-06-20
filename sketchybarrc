@@ -3,8 +3,10 @@
 # Reloads the bar if already running
 sketchybar --remove '/.*/'
 
-# Load the color scheme
+# Load the color scheme and padding scheme
 source "$CONFIG_DIR/styles/colors.sh"
+source "$CONFIG_DIR/styles/paddings.sh"
+source "$CONFIG_DIR/styles/icons.sh"
 
 # -----------------------------------------------------
 # 1. Bar Settings
@@ -14,8 +16,8 @@ sketchybar --bar height=30 \
                  shadow=on \
                  position=top \
                  sticky=on \
-                 padding_left=10 \
-                 padding_right=30 \
+                 padding_left=$PAD_BAR_LEFT \
+                 padding_right=$PAD_BAR_RIGHT \
                  corner_radius=0
 
 # -----------------------------------------------------
@@ -27,9 +29,9 @@ sketchybar --default updates=when_shown \
                      label.font="Hack Nerd Font:Regular:14.0" \
                      icon.color=$WHITE \
                      label.color=$WHITE \
-                     label.padding_left=8 \
-                     padding_left=5 \
-                     padding_right=5
+                     label.padding_left=$PAD_LABEL_LEFT \
+                     padding_left=$PAD_ITEM_LEFT \
+                     padding_right=$PAD_ITEM_RIGHT
 
 # -----------------------------------------------------
 # 3. Left Side Items
@@ -41,8 +43,8 @@ do
   sketchybar --add space space.$sid left \
              --set space.$sid space=$sid \
                               icon=${SPACE_ICONS[i]} \
-                              icon.padding_left=10 \
-                              icon.padding_right=10 \
+                              icon.padding_left=$PAD_SPACE_ICON_LEFT \
+                              icon.padding_right=$PAD_SPACE_ICON_RIGHT \
                               background.color=$ITEM_BG_COLOR \
                               background.corner_radius=5 \
                               background.height=20 \
@@ -51,11 +53,11 @@ done
 
 # Separator
 sketchybar --add item separator left \
-           --set separator icon= \
+           --set separator icon=$ICON_SEPARATOR \
                            icon.font="Hack Nerd Font:Regular:12.0" \
                            label.drawing=off \
-                           padding_left=10 \
-                           padding_right=10
+                           padding_left=$PAD_SEPARATOR_LEFT \
+                           padding_right=$PAD_SEPARATOR_RIGHT
 
 # Front Application
 sketchybar --add item front_app left \
@@ -72,60 +74,59 @@ sketchybar --add item front_app left \
 # Time (Clock Icon)
 sketchybar --add item clock right \
            --set clock update_freq=10 \
-                       icon= \
-                       padding_left=10 \
+                       icon=$ICON_CLOCK \
+                       padding_left=$PAD_RIGHT_ITEM_LEFT \
                        script="$CONFIG_DIR/plugins/clock.sh"
 
 # Date (Calendar Icon)
 sketchybar --add item calendar right \
            --set calendar update_freq=60 \
-                          icon= \
-                          padding_left=10 \
+                          icon=$ICON_CALENDAR \
+                          padding_left=$PAD_RIGHT_ITEM_LEFT \
                           script="$CONFIG_DIR/plugins/calendar.sh"
 
 # Battery
 sketchybar --add item battery right \
            --set battery update_freq=120 \
                          script="$CONFIG_DIR/plugins/battery.sh" \
-                         padding_left=10 \
+                         padding_left=$PAD_RIGHT_ITEM_LEFT \
            --subscribe battery system_woke power_source_change
 
 # CPU
 sketchybar --add item cpu right \
            --set cpu  update_freq=2 \
-                      icon=􀧓  \
-                      padding_left=10 \
-                      script="$CONFIG_DIR/plugins/cpu.sh"           
+                      icon=$ICON_CPU \
+                      padding_left=$PAD_RIGHT_ITEM_LEFT \
+                      script="$CONFIG_DIR/plugins/cpu.sh"
 
 # WIFI
-sketchybar --add item net right                  \
+sketchybar --add item net right \
            --set net script="$CONFIG_DIR/plugins/net.sh" \
                      update_freq=20 \
-                     padding_left=10 \
-                     updates=on                  \
-                     label.drawing=off           \
+                     padding_left=$PAD_RIGHT_ITEM_LEFT \
+                     updates=on \
+                     label.drawing=off \
            --subscribe net wifi_change
 
 # VPN
 sketchybar -m --add item vpn right \
-              --set vpn icon= \
-                        padding_left=10 \
+              --set vpn icon=$ICON_VPN \
+                        padding_left=$PAD_RIGHT_ITEM_LEFT \
                         update_freq=5 \
                         script="$CONFIG_DIR/plugins/vpn.sh"
 
 # Volume
 sketchybar -m --add item sound right \
-              --set sound \
-              update_freq=5 \
-              icon.color=0xffd08770 \
-              padding_left=10 \
-              script="$CONFIG_DIR/plugins/sound.sh"
+              --set sound update_freq=5 \
+                          icon.color=0xffd08770 \
+                          padding_left=$PAD_RIGHT_ITEM_LEFT \
+                          script="$CONFIG_DIR/plugins/sound.sh"
 
 # Input Source / Keyboard Layout
 sketchybar --add item input_source right \
            --set input_source update_freq=2 \
-                              icon= \
-                              padding_left=10 \
+                              icon=$ICON_KEYBOARD \
+                              padding_left=$PAD_RIGHT_ITEM_LEFT \
                               script="$CONFIG_DIR/plugins/input_source.sh" \
            --subscribe input_source mouse.clicked
 
