@@ -24,6 +24,9 @@ export PAD_ITEM_RIGHT=5
 
 # --- Icon <-> label spacing (inside a single item) -------
 export PAD_LABEL_LEFT=8
+export PAD_LABEL_RIGHT=8
+export PAD_ICON_LEFT=8
+export PAD_ICON_RIGHT=8
 
 # --- Space indicators (left side, colored pills) ---------
 export PAD_SPACE_ICON_LEFT=10
