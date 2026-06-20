@@ -25,8 +25,8 @@ export PAD_ITEM_RIGHT=5
 # --- Icon <-> label spacing (inside a single item) -------
 export PAD_LABEL_LEFT=8
 export PAD_LABEL_RIGHT=8
-export PAD_ICON_LEFT=8
-export PAD_ICON_RIGHT=8
+export PAD_ICON_LEFT=7
+export PAD_ICON_RIGHT=7
 
 # --- Space indicators (left side, colored pills) ---------
 export PAD_SPACE_ICON_LEFT=10
@@ -39,7 +39,7 @@ export PAD_SEPARATOR_RIGHT=10
 # --- Right-side menu cluster -------------------------------
 # Most right-aligned items only need left padding, since they
 # push away from whatever sits to their left.
-export PAD_RIGHT_ITEM_LEFT=10
+export PAD_RIGHT_ITEM_LEFT=5
 
 # --- Bracket / grouped-background padding -----------------
 # Used when multiple items share one pill background (e.g. net+vpn+sound)
